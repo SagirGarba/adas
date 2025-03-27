@@ -44,7 +44,7 @@ const Testimonial = () => {
                   alt={testimonial.name}
                   width={80}
                   height={80}
-                  className="rounded-full"
+                  className="rounded-full object-cover w-20 h-20"
                 />
               </div>
               <p className="text-[#242424] italic flex-1">

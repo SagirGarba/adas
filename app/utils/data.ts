@@ -2,8 +2,9 @@ import Images from "@/public/images/Aboutus/Vision/Mission1.gif";
 import Images2 from "@/public/images/Aboutus/Vision/Vision1.gif";
 import Images1 from "@/public/images/home/Team/index";
 import { StaticImageData } from "next/image";
-import Images3 from "@/public/images/home/Team/Placehoder.jpeg";
+import Images3 from "@/public/images/home/Testimonial/index";
 import Images4 from "@/public/images/blog/index";
+import SSG from "@/public/images/home/auwal.jpeg";
 
 export const navigation = [
   { name: "Home", href: "/" },
@@ -167,8 +168,14 @@ export const teamsData: TeamCategory[] = [
   },
 
   {
-    category: "ADAS Implementation Committee",
+    category: "ADAS State Implementation Committee",
     members: [
+      {
+        id: 3,
+        name: "Auwal D. Tukur",
+        title: "Secretary to the Government of Adamawa",
+        image: SSG,
+      },
       {
         id: 1,
         name: "Dr. Garba Ahmad",
@@ -177,7 +184,7 @@ export const teamsData: TeamCategory[] = [
       },
       {
         id: 2,
-        name: "Mrs Joe Tarfa",
+        name: "Mrs Joy Tarfa",
         title: "Secretary",
         image: Images1[5],
       },
@@ -218,125 +225,103 @@ export const teamsData: TeamCategory[] = [
 export const testimonials = [
   {
     id: 1,
-    name: "Ibrahim Bello",
+    name: "Aishatu Usman",
     feedback:
       "Unity Farmers Cooperative, Mubi North, Adamawa State, Nigeria: With ADASP support, our members have accessed cash loans, solar and engine water pumps, fertilizers, and essential farming equipment, significantly improving productivity in our community.",
-    image: Images3,
+    image: Images3[0],
   },
   {
     id: 2,
-    name: "Maryam Abdullahi",
+    name: "Awwal Hayatu",
     feedback:
       "Women in Agriculture Cooperative, Hong, Adamawa State, Nigeria: ADASP has enabled us to access quality farming equipment, fertilizers, and irrigation tools, making a real difference for women farmers in our community.",
-    image: Images3,
+    image: Images3[1],
   },
   {
     id: 3,
-    name: "Usman Haruna",
+    name: "Emmanuel Peter",
     feedback:
       "Rural Farmers Development Cooperative, Numan, Adamawa State, Nigeria: With ADASP support, we have received essential poultry farming equipment and fertilizers, boosting both crop and livestock production in our area.",
-    image: Images3,
+    image: Images3[2],
   },
   {
     id: 4,
-    name: "Fatima Yusuf",
+    name: "Habibu Ibrahim",
     feedback:
       "Bright Future Women Farmers Cooperative, Yola South, Adamawa State, Nigeria: ADASP has provided us with vital farming equipment and fertilizers, empowering our women farmers and increasing food production in our LGA.",
-    image: Images3,
+    image: Images3[3],
   },
   {
     id: 5,
-    name: "Amina Bello",
+    name: "Hauwa Mohammed",
     feedback:
       "Green Growth Farmers Cooperative, Fufore, Adamawa State, Nigeria: The solar water pumps and fertilizers from ADASP have greatly improved our farming efficiency and increased yields for all our members.",
-    image: Images3,
+    image: Images3[4],
   },
   {
     id: 6,
-    name: "Usman Haruna",
+    name: "Hauwa Yunusa",
     feedback:
       "Rural Farmers Development Cooperative, Numan, Adamawa State, Nigeria: With ADASP support, we have received essential poultry farming equipment and fertilizers, boosting both crop and livestock production in our area.",
-    image: Images3,
+    image: Images3[5],
   },
   {
     id: 7,
-    name: "Maryam Abdullahi",
+    name: "Jennifar Ishaya",
     feedback:
       "Women in Agriculture Cooperative, Hong, Adamawa State, Nigeria: ADASP has enabled us to access quality farming equipment, fertilizers, and irrigation tools, making a real difference for women farmers in our community.",
-    image: Images3,
+    image: Images3[6],
   },
   {
     id: 8,
-    name: "Bashir Adamu",
+    name: "Judith Jacob",
     feedback:
       "Adamawa Agro-Tech Cooperative, Demsa, Adamawa State, Nigeria: The financial and technical support from ADASP has strengthened our cooperative, allowing us to invest in modern farming techniques and increase our output.",
-    image: Images3,
+    image: Images3[7],
   },
   {
     id: 20,
-    name: "Sani Umar",
+    name: "Nuruddeen Abdullahi",
     feedback:
       "New Vision Farmers Cooperative, Girei, Adamawa State, Nigeria: Through ADASP, we now have access to essential farming equipment and funding, helping our members achieve better harvests and sustainable farming practices.",
-    image: Images3,
+    image: Images3[8],
   },
 
   {
     id: 9,
-    name: "Halima Mohammed",
+    name: "Rilwanu Dan Buram",
     feedback:
       "Victory Farmers Cooperative, Song, Adamawa State, Nigeria: ADASP has provided our members with much-needed agricultural inputs, including fertilizers and water pumps, ensuring we can farm efficiently year-round.",
-    image: Images3,
+    image: Images3[9],
   },
   {
     id: 10,
-    name: "Aliyu Suleiman",
+    name: "Sale Dala",
     feedback:
       "Farmers Prosperity Cooperative, Lamurde, Adamawa State, Nigeria: With ADASP help, we now have access to poultry farming equipment and irrigation tools, significantly improving our members agricultural output.",
-    image: Images3,
+    image: Images3[10],
   },
   {
     id: 11,
-    name: "Aisha Usman",
+    name: "Shuaibu Dahiru",
     feedback:
       "Future Farmers Cooperative, Toungo, Adamawa State, Nigeria: ADASP has made modern farming equipment and financial aid accessible to us, improving productivity and food security in our LGA.",
-    image: Images3,
+    image: Images3[11],
   },
   {
     id: 12,
-    name: "Musa Ibrahim",
+    name: "Solomon Luka",
     feedback:
       "Harvest Boost Cooperative, Jada, Adamawa State, Nigeria: Thanks to ADASP, our members now have access to solar water pumps and fertilizers, making farming more sustainable and profitable.",
-    image: Images3,
+    image: Images3[12],
   },
 
   {
     id: 13,
-    name: "Ismaila Adamu",
+    name: "Yohana Thimoty",
     feedback:
       "Ganye, Adamawa State, Nigeria: With ADASP support, I received an engine water pump and fertilizers, which have helped me improve my farms productivity and income.",
-    image: Images3,
-  },
-  {
-    id: 14,
-    name: "Maryam Suleiman",
-    feedback:
-      "Mayo-Belwa, Adamawa State, Nigeria: ADASP financial support and farming equipment have allowed me to expand my poultry farm and increase my earnings.",
-    image: Images3,
-  },
-
-  {
-    id: 15,
-    name: "Abdullahi Musa",
-    feedback:
-      "Mubi South, Adamawa State, Nigeria: The solar water pump and cash loan I received from ADASP have transformed my farming business, making it more sustainable and profitable.",
-    image: Images3,
-  },
-  {
-    id: 16,
-    name: "Khadija Ahmed",
-    feedback:
-      "Jada, Adamawa State, Nigeria: Thanks to ADASP, I now have access to fertilizers and modern irrigation tools, enabling me to cultivate my land more efficiently.",
-    image: Images3,
+    image: Images3[13],
   },
 ];
 

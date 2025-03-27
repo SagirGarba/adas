@@ -99,7 +99,7 @@ const BlogPost = () => {
         government area where he said the aim of program is to improve food
         production in the state through dry season farming support.
       </p>
-      <div className="w-[65%] h-[30rem] mx-auto relative mb-6">
+      <div className="w-full h-[20rem] md:w-[65%] md:h-[30rem] mx-auto relative mb-6">
         <Image
           src={Images[13]}
           alt="ICT in Agriculture"
@@ -113,7 +113,7 @@ const BlogPost = () => {
         implementation of Governor Ahmadu Umaru Fintiri’s policies to ensure
         food security in the state.
       </p>
-      <div className="w-[65%] h-[30rem] mx-auto relative mb-6">
+      <div className="w-full h-[20rem] md:w-[65%] md:h-[30rem] mx-auto relative mb-6">
         <Image
           src={Images[14]}
           alt="ICT in Agriculture"
@@ -127,7 +127,7 @@ const BlogPost = () => {
         farming considering the change in weather and climate, saying this is
         the solution to the food insecurity bedeviling the country.
       </p>
-      <div className="w-[65%] h-[30rem] mx-auto relative mb-6">
+      <div className="w-full h-[20rem] md:w-[65%] md:h-[30rem] mx-auto relative mb-6">
         <Image
           src={Images[15]}
           alt="ICT in Agriculture"
@@ -141,7 +141,7 @@ const BlogPost = () => {
         District Scribes/Heads, Directors agric and natural resources among
         stakeholders.
       </p>
-      <div className="w-[65%] h-[30rem] mx-auto relative mb-6">
+      <div className="w-full h-[20rem] md:w-[65%] md:h-[30rem] mx-auto relative mb-6">
         <Image
           src={Images[16]}
           alt="ICT in Agriculture"

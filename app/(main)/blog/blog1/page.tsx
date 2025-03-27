@@ -120,7 +120,7 @@ const BlogPost = () => {
         these farmers to input financing and reliable markets to ensure higher
         productivity and profitability.
       </p>
-      <div className="w-[65%] h-[30rem] mx-auto relative mb-6">
+      <div className="w-full h-[20rem] md:w-[65%] md:h-[30rem] mx-auto relative mb-6">
         <Image
           src={Images[1]}
           alt="ICT in Agriculture"
@@ -159,7 +159,7 @@ const BlogPost = () => {
         mobilization to aggregate for contract farming 2,000 Hectares of
         community irrigation farm clusters.
       </p>
-      <div className="w-[65%] h-[30rem] mx-auto relative mb-6">
+      <div className="w-full h-[20rem] md:w-[65%] md:h-[30rem] mx-auto relative mb-6">
         <Image
           src={Images[2]}
           alt="ICT in Agriculture"
@@ -186,7 +186,7 @@ const BlogPost = () => {
         export plant in Yola, with the goal of supplying 100,000 goats per
         month, a transformative development for livestock farming in the state.
       </p>
-      <div className="w-[65%] h-[30rem] mx-auto relative mb-6">
+      <div className="w-full h-[20rem] md:w-[65%] md:h-[30rem] mx-auto relative mb-6">
         <Image
           src={Images[3]}
           alt="ICT in Agriculture"
@@ -207,7 +207,7 @@ const BlogPost = () => {
         development of the Adamawa State Aquaculture Business Strategy, laying
         the foundation for long-term growth within the aquaculture sector.
       </p>
-      <div className="w-[65%] h-[30rem] mx-auto relative mb-6">
+      <div className="w-full h-[20rem] md:w-[65%] md:h-[30rem] mx-auto relative mb-6">
         <Image
           src={Images[4]}
           alt="ICT in Agriculture"
@@ -230,7 +230,7 @@ const BlogPost = () => {
         implementing climate-smart agriculture practices, reinforcing
         ADAS-P&apos;s commitment to environmental sustainability.
       </p>
-      <div className="w-[65%] h-[30rem] mx-auto relative mb-6">
+      <div className="w-full h-[20rem] md:w-[65%] md:h-[30rem] mx-auto relative mb-6">
         <Image
           src={Images[5]}
           alt="ICT in Agriculture"
@@ -256,7 +256,7 @@ const BlogPost = () => {
         systems, sand-filling, provision of water, fencing, security offices,
         veterinary clinics, and loading bays at the selected markets.
       </p>
-      <div className="w-[65%] h-[30rem] mx-auto relative mb-6">
+      <div className="w-full h-[20rem] md:w-[65%] md:h-[30rem] mx-auto relative mb-6">
         <Image
           src={Images[6]}
           alt="ICT in Agriculture"
@@ -284,7 +284,7 @@ const BlogPost = () => {
           ))}
         </tbody>
       </table>
-      <div className="w-[65%] h-[30rem] mx-auto relative mb-6">
+      <div className="w-full h-[20rem] md:w-[65%] md:h-[30rem] mx-auto relative mb-6">
         <Image
           src={Images[7]}
           alt="ICT in Agriculture"
@@ -323,7 +323,7 @@ const BlogPost = () => {
         Value Chain Development), to align policies and strengthen inter-sector
         collaboration.
       </p>
-      <div className="w-[65%] h-[30rem] mx-auto relative mb-6">
+      <div className="w-full h-[20rem] md:w-[65%] md:h-[30rem] mx-auto relative mb-6">
         <Image
           src={Images[8]}
           alt="ICT in Agriculture"

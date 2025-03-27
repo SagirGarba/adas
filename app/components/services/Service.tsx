@@ -3,7 +3,7 @@ import { Users, Package, Banknote, ShoppingCart } from "lucide-react";
 
 const services = [
   {
-    title: "Demand-Led Agribusiness Development",
+    title: "Demand-Led Agribusiness",
     description:
       "ADAS-P fosters community empowerment through agribusiness development. It organizes farmers into clusters and producer organizations, using aggregation and out-grower models. These models connect farmers to markets, suppliers, and government agencies via contracts, ensuring market access, quality standards, and economies of scale.",
     icon: <Users size={50} />,

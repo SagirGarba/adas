@@ -8,7 +8,10 @@ import { Inter } from "next/font/google";
 
 export const metadata: Metadata = {
   title: "ADAS-P",
-  description: "",
+  keywords:
+    "Adamawa, Agri business, Market linkage, access to finance, Agriculture",
+  description: "Adamawa State Agri-business limited",
+
   icons: {
     icon: "/logo.png",
   },

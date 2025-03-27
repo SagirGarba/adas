@@ -6,7 +6,7 @@ const Initiative = () => {
   return (
     <section className="wrapper py-16 px-6 bg-gray-100">
       <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-center text-[#0B6623]">
-        Key Initiatives
+        Key Domain
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
         {[
