@@ -13,7 +13,7 @@ export const navigation = [
     href: "/aboutus",
   },
   { name: "Our Work", href: "/ourwork" },
-  { name: "Patnership", href: "/patnership" },
+  { name: "Partnership", href: "/patnership" },
 
   {
     name: "Programme",
