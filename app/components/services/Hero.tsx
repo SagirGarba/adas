@@ -38,10 +38,10 @@ const Hero = () => {
 
       {/* Static Text Overlay */}
       <div className="absolute inset-0 bg-black/70 flex flex-col items-center justify-center text-white text-center px-4 md:px-16 lg:px-32 py-20">
-        <h1 className="text-4xl md:text-6xl font-bold mb-5">
+        <h1 className="text-2xl md:text-6xl font-bold mb-5">
           Transforming Agriculture, Empowering Communities
         </h1>
-        <p className="text-2xl md:text-3xl mt-4 py-10">
+        <p className=" md:text-3xl mt-4 py-10">
           At ADAS-P, we are committed to strengthening agricultural value
           chains, expanding market access, and improving financial services to
           drive sustainable growth. Join us in creating lasting impact.
