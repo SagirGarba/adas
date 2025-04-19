@@ -24,6 +24,10 @@ export const navigation = [
     href: "/services",
   },
   {
+    name: "Business Model",
+    href: "/businessModel",
+  },
+  {
     name: "Blog",
     href: "/blog",
   },
