@@ -10,7 +10,7 @@ const Action = () => {
         Be part of a transformative movement in agriculture.
       </p>
       <div className="mt-6">
-        <Link href="/">
+        <Link href="/forms/partnership">
           <Button text="Join Now" bgColor="white" textColor="[#0B6623]" />
         </Link>
       </div>
