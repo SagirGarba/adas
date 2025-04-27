@@ -229,6 +229,9 @@ const PartnershipForm = () => {
                   }`}
                 >
                   <option value="">Select your business type</option>
+                  <option value="Agri-Tech/Equipment Manufacturer or Supplier">
+                    Agri-Tech/Equipment Manufacturer or Supplier
+                  </option>
                   <option value="Farm Owner/Operator">
                     Farm Owner/Operator
                   </option>
