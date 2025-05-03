@@ -12,6 +12,8 @@ export default function Nav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
+  
+
   // Prevent scrolling when mobile menu is open
   useEffect(() => {
     if (open) {
@@ -21,22 +23,80 @@ export default function Nav() {
     }
   }, [open]);
 
-  const NavList = () => (
-    <div className="flex flex-col lg:flex-row lg:items-center gap-5">
-      {navigation.map((item, i) => (
-        <Link
-          key={i}
-          href={item.href}
-          className={`relative px-3 py-1 hover:text-primary ${
-            pathname === item.href ? "text-gray-300" : "text-white"
-          }`}
-          onClick={() => setOpen(false)} // Close menu when a link is clicked
-        >
-          {item.name}
-        </Link>
-      ))}
-    </div>
-  );
+  const [openSubMenuIndex, setOpenSubMenuIndex] = useState<number | null>(null);
+
+
+ const NavList = () => (
+   <div className="flex flex-col lg:flex-row lg:items-center gap-5 w-full">
+     {navigation.map((item, i) =>
+       item.subItems ? (
+         <div key={i} className="relative w-full lg:w-auto group">
+           <span
+             className={`relative px-3 py-1 hover:text-primary cursor-pointer flex justify-between items-center ${
+               pathname === item.href ? "text-gray-300" : "text-white"
+             }`}
+             onClick={() =>
+               setOpenSubMenuIndex(openSubMenuIndex === i ? null : i)
+             }
+           >
+             {item.name}
+             <span className="ml-2 lg:hidden">▾</span>
+           </span>
+
+           {/* Desktop hover menu */}
+           <div className="hidden lg:block  absolute left-0 mt-2 w-48 bg-white text-black shadow-lg rounded-md opacity-0 group-hover:opacity-100 transition-opacity z-50">
+             {item.subItems.map((sub, j) => (
+               <Link
+                 key={j}
+                 href={sub.href}
+                 className="block px-4 py-2 hover:bg-gray-100 text-[#0B6623]"
+                 onClick={() => setOpen(false)}
+               >
+                 {sub.name}
+               </Link>
+             ))}
+           </div>
+
+           {/* Mobile click menu */}
+           {openSubMenuIndex === i && (
+             <div className="lg:hidden mt-2 w-full bg-white text-black shadow-md rounded-md z-50">
+               {item.subItems.map((sub, j) => (
+                 <Link
+                   key={j}
+                   href={sub.href}
+                   className="block px-4 py-2 hover:bg-gray-100"
+                   onClick={() => {
+                     setOpen(false);
+                     setOpenSubMenuIndex(null);
+                   }}
+                 >
+                   {sub.name}
+                 </Link>
+               ))}
+             </div>
+           )}
+         </div>
+       ) : (
+         <Link
+           key={i}
+           href={item.href}
+           className={`relative px-3 py-1 hover:text-primary ${
+             pathname === item.href ? "text-gray-300" : "text-white"
+           }`}
+           onClick={() => {
+             setOpen(false);
+             setOpenSubMenuIndex(null);
+           }}
+         >
+           {item.name}
+         </Link>
+       )
+     )}
+   </div>
+ );
+
+
+
 
   return (
     <>
@@ -55,7 +115,7 @@ export default function Nav() {
           </div>
 
           {/* Navigation (Desktop) */}
-          <div className="hidden lg:flex flex-1 justify-center">
+          <div className="hidden lg:flex absolute left-1/2 transform -translate-x-1/2">
             <NavList />
           </div>
 

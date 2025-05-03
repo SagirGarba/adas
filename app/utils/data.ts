@@ -9,32 +9,61 @@ import SSG from "@/public/images/home/auwal.jpeg";
 export const navigation = [
   { name: "Home", href: "/" },
   {
+    name: "What We Do",
+    subItems: [
+      { name: "Our Work", href: "/ourwork" },
+      {
+        name: "Programme",
+        href: "/programme",
+      },
+      {
+        name: "Services",
+        href: "/services",
+      },
+    ],
+  },
+  {
+    name: "Connect",
+    subItems: [
+      { name: "Partnership", href: "/patnership" },
+      {
+        name: "Business Models",
+        href: "/businessModel",
+      },
+      {
+        name: "Blog",
+        href: "/blog",
+      },
+
+      {
+        name: "Our Team",
+        href: "/ourTeam",
+      },
+    ],
+  },
+  {
     name: "About Us",
     href: "/aboutus",
   },
-  { name: "Our Work", href: "/ourwork" },
-  { name: "Partnership", href: "/patnership" },
 
   {
-    name: "Programme",
-    href: "/programme",
-  },
-  {
-    name: "Services",
-    href: "/services",
-  },
-  {
-    name: "Business Models",
-    href: "/businessModel",
-  },
-  {
-    name: "Blog",
-    href: "/blog",
-  },
+    name: "ASABIS",
 
+    subItems: [
+      { name: "Agri-business Opportunities", href: "/agriOpportunity" },
+      {
+        name: "Login",
+        href: "/",
+      },
+      {
+        name: "Register",
+        href: "/",
+      },
+    ],
+  },
   {
-    name: "Our Team",
-    href: "/ourTeam",
+    name: "Contact Us",
+    href: "/contact",
   },
 ];
 
