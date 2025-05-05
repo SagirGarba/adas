@@ -15,7 +15,6 @@ import Link from "next/link";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-
 const ContactUs = () => {
   const [form, setForm] = useState({
     name: "",
@@ -23,7 +22,7 @@ const ContactUs = () => {
     phone: "",
     message: "",
   });
-  const [status, setStatus] = useState("");
+  const [status] = useState("");
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -46,14 +45,13 @@ const ContactUs = () => {
 
       toast.success("Message sent successfully!");
       setForm({ name: "", email: "", phone: "", message: "" });
-    } catch (error: any) {
-      console.error("Submission error:", error.message);
-      toast.error("Failed to send message.");
+    } catch (error) {
+      console.error("Submission error:", error);
+      toast.error(
+        error instanceof Error ? error.message : "Failed to send message."
+      );
     }
-
-    console.log(form);
   };
-
 
   return (
     <div className="wrapper bg-gray-100 flex items-center justify-center px-4 py-10">

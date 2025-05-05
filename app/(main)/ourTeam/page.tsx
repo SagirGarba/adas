@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { TeamMember,  teamsData } from "@/app/utils/data";
+import { TeamMember, teamsData } from "@/app/utils/data";
 import Hero from "@/app/components/team/Hero";
 
 interface TeamCarouselProps {
@@ -10,12 +10,7 @@ interface TeamCarouselProps {
   teamMembers: TeamMember[];
 }
 
-
-
-const TeamCarousel: React.FC<TeamCarouselProps> = ({
-  
-  teamMembers,
-}) => {
+const TeamCarousel: React.FC<TeamCarouselProps> = ({ teamMembers }) => {
   const [offsetX, setOffsetX] = useState(0);
   const [cardsPerView, setCardsPerView] = useState(1);
   const [isDragging, setIsDragging] = useState(false);
@@ -47,7 +42,7 @@ const TeamCarousel: React.FC<TeamCarouselProps> = ({
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, []);
+  });
 
   const handleNext = () => {
     setOffsetX((prev) => (prev >= teamCarousel.length / 2 - 1 ? 0 : prev + 1));
@@ -116,9 +111,7 @@ const TeamCarousel: React.FC<TeamCarouselProps> = ({
               />
 
               <div className="text-[#03BBA] py-1 text-sm">{member.name}</div>
-              <p className="text- text-[#0B6623] mt-2 ">
-                {member.title}
-              </p>
+              <p className="text- text-[#0B6623] mt-2 ">{member.title}</p>
             </div>
           ))}
         </div>

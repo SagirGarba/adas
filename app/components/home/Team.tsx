@@ -42,7 +42,7 @@ const Team = () => {
         clearInterval(intervalRef.current); // Clean up on component unmount
       }
     };
-  }, []);
+  });
 
   const handleNext = () => {
     setOffsetX((prev) => (prev >= teamCarousel.length / 2 - 1 ? 0 : prev + 1));
