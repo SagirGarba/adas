@@ -3,20 +3,38 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import { FaCheckCircle } from "react-icons/fa";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+interface FormData {
+  companyName: string;
+  rcNumber: string;
+  companyEmail: string;
+  companyPhone: string;
+  representativeName: string;
+  representativePhone: string;
+  sectorType: string;
+  collaborationArea: string;
+  potentialInvestment: string;
+  experience: string;
+  companyProfile: string;
+}
 
 const PartnershipForm = () => {
-  const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-    phone: "",
-    businessName: "",
-    businessType: "",
-    investmentRange: "",
+  const [formData, setFormData] = useState<FormData>({
+    companyName: "",
+    rcNumber: "",
+    companyEmail: "",
+    companyPhone: "",
+    representativeName: "",
+    representativePhone: "",
+    sectorType: "",
+    collaborationArea: "",
+    potentialInvestment: "",
     experience: "",
-    message: "",
+    companyProfile: "",
   });
 
-  const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
@@ -33,22 +51,49 @@ const PartnershipForm = () => {
   };
 
   const validateForm = () => {
-    const newErrors: Record<string, string> = {};
-    if (!formData.fullName.trim()) newErrors.fullName = "Full name is required";
-    if (!formData.email.trim()) {
-      newErrors.email = "Email is required";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Please enter a valid email";
+    let isValid = true;
+
+    if (!formData.companyName.trim()) {
+      toast.error("Company name is required");
+      isValid = false;
     }
-    if (!formData.phone.trim()) newErrors.phone = "Phone number is required";
-    if (!formData.businessName.trim())
-      newErrors.businessName = "Business name is required";
-    if (!formData.businessType)
-      newErrors.businessType = "Business type is required";
-    if (!formData.investmentRange)
-      newErrors.investmentRange = "Investment range is required";
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    if (!formData.rcNumber.trim()) {
+      toast.error("RC Number is required");
+      isValid = false;
+    }
+    if (!formData.companyEmail.trim()) {
+      toast.error("Company email is required");
+      isValid = false;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.companyEmail)) {
+      toast.error("Please enter a valid email");
+      isValid = false;
+    }
+    if (!formData.companyPhone.trim()) {
+      toast.error("Company phone is required");
+      isValid = false;
+    }
+    if (!formData.representativeName.trim()) {
+      toast.error("Representative name is required");
+      isValid = false;
+    }
+    if (!formData.representativePhone.trim()) {
+      toast.error("Representative phone is required");
+      isValid = false;
+    }
+    if (!formData.sectorType) {
+      toast.error("Sector type is required");
+      isValid = false;
+    }
+    if (!formData.collaborationArea) {
+      toast.error("Area of collaboration is required");
+      isValid = false;
+    }
+    if (!formData.potentialInvestment) {
+      toast.error("Potential investment is required");
+      isValid = false;
+    }
+
+    return isValid;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -59,21 +104,38 @@ const PartnershipForm = () => {
     setIsSubmitting(true);
 
     try {
-      console.log("Form data to be emailed:", formData);
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      setIsSuccess(true);
-      setFormData({
-        fullName: "",
-        email: "",
-        phone: "",
-        businessName: "",
-        businessType: "",
-        investmentRange: "",
-        experience: "",
-        message: "",
+      const response = await fetch("/api/partnership", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
       });
-    } catch (error) {
-      console.error("Submission error:", error);
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Submission failed");
+      }
+
+      toast.success("Partnership application submitted successfully!");
+      setIsSuccess(true);
+      // Reset form if needed
+      setFormData({
+        companyName: "",
+        rcNumber: "",
+        companyEmail: "",
+        companyPhone: "",
+        representativeName: "",
+        representativePhone: "",
+        sectorType: "",
+        collaborationArea: "",
+        potentialInvestment: "",
+        experience: "",
+        companyProfile: "",
+      });
+    } catch (err) {
+      console.error("Submission error:", err);
+      toast.error(err instanceof Error ? err.message : "Submission failed");
     } finally {
       setIsSubmitting(false);
     }
@@ -90,9 +152,8 @@ const PartnershipForm = () => {
             Thank You for Your Interest!
           </h2>
           <p className="text-lg text-gray-600 mb-8">
-            Your partnership application has been successfully submitted. Our
-            team will review your information and get back to you within 3-5
-            business days.
+            Your partnership application has been successfully submitted. Thank
+            you for doing business with ADAS-P.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <button
@@ -115,7 +176,8 @@ const PartnershipForm = () => {
 
   return (
     <div className="wrapper bg-gray-100 flex items-center justify-center px-4 py-10">
-      <div className="w-full  bg-white shadow-lg rounded-lg overflow-hidden">
+      <ToastContainer position="top-right" autoClose={3000} hideProgressBar />
+      <div className="w-full bg-white shadow-lg rounded-lg overflow-hidden">
         <div className="w-full p-8">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold text-green-700 mb-2">
@@ -130,144 +192,141 @@ const PartnershipForm = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-gray-700 mb-2 font-medium">
-                  Full Name *
+                  Company Name *
                 </label>
                 <input
                   type="text"
-                  name="fullName"
-                  value={formData.fullName}
+                  name="companyName"
+                  value={formData.companyName}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 ${
-                    errors.fullName
-                      ? "border-red-500 focus:ring-red-300"
-                      : "border-gray-300 focus:ring-green-500 focus:border-green-500"
-                  }`}
-                  placeholder="Enter your full name"
+                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2`}
+                  placeholder="Enter company name"
                 />
-                {errors.fullName && (
-                  <p className="text-red-500 text-sm mt-1">{errors.fullName}</p>
-                )}
               </div>
 
               <div>
                 <label className="block text-gray-700 mb-2 font-medium">
-                  Email Address *
+                  RC Number *
+                </label>
+                <input
+                  type="text"
+                  name="rcNumber"
+                  value={formData.rcNumber}
+                  onChange={handleChange}
+                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2`}
+                  placeholder="Enter RC number"
+                />
+              </div>
+
+              <div>
+                <label className="block text-gray-700 mb-2 font-medium">
+                  Company Email Address *
                 </label>
                 <input
                   type="email"
-                  name="email"
-                  value={formData.email}
+                  name="companyEmail"
+                  value={formData.companyEmail}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 ${
-                    errors.email
-                      ? "border-red-500 focus:ring-red-300"
-                      : "border-gray-300 focus:ring-green-500 focus:border-green-500"
-                  }`}
-                  placeholder="Enter your email"
+                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2`}
+                  placeholder="Enter company email"
                 />
-                {errors.email && (
-                  <p className="text-red-500 text-sm mt-1">{errors.email}</p>
-                )}
               </div>
 
               <div>
                 <label className="block text-gray-700 mb-2 font-medium">
-                  Phone Number *
+                  Company Phone Number *
                 </label>
                 <input
                   type="tel"
-                  name="phone"
-                  value={formData.phone}
+                  name="companyPhone"
+                  value={formData.companyPhone}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 ${
-                    errors.phone
-                      ? "border-red-500 focus:ring-red-300"
-                      : "border-gray-300 focus:ring-green-500 focus:border-green-500"
-                  }`}
-                  placeholder="Enter your phone number"
+                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2`}
+                  placeholder="Enter company phone number"
                 />
-                {errors.phone && (
-                  <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
-                )}
               </div>
 
               <div>
                 <label className="block text-gray-700 mb-2 font-medium">
-                  Business/Organization Name *
+                  Representative Name *
                 </label>
                 <input
                   type="text"
-                  name="businessName"
-                  value={formData.businessName}
+                  name="representativeName"
+                  value={formData.representativeName}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 ${
-                    errors.businessName
-                      ? "border-red-500 focus:ring-red-300"
-                      : "border-gray-300 focus:ring-green-500 focus:border-green-500"
-                  }`}
-                  placeholder="Enter your business name"
+                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2`}
+                  placeholder="Enter representative name"
                 />
-                {errors.businessName && (
-                  <p className="text-red-500 text-sm mt-1">
-                    {errors.businessName}
-                  </p>
-                )}
               </div>
 
               <div>
                 <label className="block text-gray-700 mb-2 font-medium">
-                  Business Type *
+                  Representative Phone Number *
+                </label>
+                <input
+                  type="tel"
+                  name="representativePhone"
+                  value={formData.representativePhone}
+                  onChange={handleChange}
+                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2`}
+                  placeholder="Enter representative phone number"
+                />
+              </div>
+
+              <div>
+                <label className="block text-gray-700 mb-2 font-medium">
+                  Private or Public Sector *
                 </label>
                 <select
-                  name="businessType"
-                  value={formData.businessType}
+                  name="sectorType"
+                  value={formData.sectorType}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 ${
-                    errors.businessType
-                      ? "border-red-500 focus:ring-red-300"
-                      : "border-gray-300 focus:ring-green-500 focus:border-green-500"
-                  }`}
+                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2`}
                 >
-                  <option value="">Select your business type</option>
-                  <option value="Agri-Tech/Equipment Manufacturer or Supplier">
-                    Agri-Tech/Equipment Manufacturer or Supplier
-                  </option>
-                  <option value="Farm Owner/Operator">
-                    Farm Owner/Operator
-                  </option>
-                  <option value="Agri-Input Supplier">
-                    Agri-Input Supplier
-                  </option>
-                  <option value="Processor/Manufacturer">
-                    Processor/Manufacturer
-                  </option>
-                  <option value="Distributor/Retailer">
-                    Distributor/Retailer
-                  </option>
-                  <option value="Investor/Financier">Investor/Financier</option>
-                  <option value="Research/Education">Research/Education</option>
-                  <option value="Other">Other</option>
+                  <option value="">Select sector type</option>
+                  <option value="Private">Private</option>
+                  <option value="Public">Public</option>
                 </select>
-                {errors.businessType && (
-                  <p className="text-red-500 text-sm mt-1">
-                    {errors.businessType}
-                  </p>
-                )}
               </div>
 
               <div>
                 <label className="block text-gray-700 mb-2 font-medium">
-                  Potential Investment Range *
+                  Potential Area of Collaboration *
                 </label>
                 <select
-                  name="investmentRange"
-                  value={formData.investmentRange}
+                  name="collaborationArea"
+                  value={formData.collaborationArea}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 ${
-                    errors.investmentRange
-                      ? "border-red-500 focus:ring-red-300"
-                      : "border-gray-300 focus:ring-green-500 focus:border-green-500"
-                  }`}
+                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2`}
+                >
+                  <option value="">Select area of collaboration</option>
+                  <option value="Corporate Farm">Corporate Farm</option>
+                  <option value="Farm Cooperative">Farm Cooperative</option>
+                  <option value="Development Partner">
+                    Development Partner
+                  </option>
+                  <option value="Input/Equipment Dealer">
+                    Input/Equipment Dealer
+                  </option>
+                  <option value="Off-taker">Off-taker</option>
+                  <option value="Aggregator">Aggregator</option>
+                  <option value="Logistics">Logistics</option>
+                  <option value="Service Provider">Service Provider</option>
+                  <option value="Government Agency">Government Agency</option>
+                  <option value="Exporter">Exporter</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-gray-700 mb-2 font-medium">
+                  Potential Investment *
+                </label>
+                <select
+                  name="potentialInvestment"
+                  value={formData.potentialInvestment}
+                  onChange={handleChange}
+                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2`}
                 >
                   <option value="">Select investment range</option>
                   <option value="Under ₦5,000,000">Under ₦5,000,000</option>
@@ -282,12 +341,21 @@ const PartnershipForm = () => {
                   </option>
                   <option value="Over ₦100,000,000">Over ₦100,000,000</option>
                 </select>
-                {errors.investmentRange && (
-                  <p className="text-red-500 text-sm mt-1">
-                    {errors.investmentRange}
-                  </p>
-                )}
               </div>
+            </div>
+
+            <div>
+              <label className="block text-gray-700 mb-2 font-medium">
+                Company Profile
+              </label>
+              <textarea
+                name="companyProfile"
+                value={formData.companyProfile}
+                onChange={handleChange}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                rows={4}
+                placeholder="Provide details about your company"
+              ></textarea>
             </div>
 
             <div>
@@ -304,25 +372,11 @@ const PartnershipForm = () => {
               ></textarea>
             </div>
 
-            <div>
-              <label className="block text-gray-700 mb-2 font-medium">
-                Additional Message
-              </label>
-              <textarea
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
-                rows={4}
-                placeholder="Any additional information you'd like to share"
-              ></textarea>
-            </div>
-
             <div className="pt-4 flex justify-center">
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={` px-6 bg-green-700 text-white py-3 rounded-lg hover:bg-green-800 transition font-medium text-lg ${
+                className={`px-6 bg-green-700 text-white py-3 rounded-lg hover:bg-green-800 transition font-medium text-lg ${
                   isSubmitting ? "opacity-70 cursor-not-allowed" : ""
                 }`}
               >

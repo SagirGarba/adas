@@ -1,34 +1,30 @@
 import { NextResponse } from "next/server";
-import { sendEmail } from "@/app/utils/email";
+import nodemailer from "nodemailer";
 
-export async function POST(request: Request) {
+export async function POST(req: Request) {
   try {
-    const formData = await request.json();
+    const { name, email, phone, message } = await req.json();
 
-    // Validate required fields
-    if (
-      !formData.fullName ||
-      !formData.email ||
-      !formData.phone ||
-      !formData.businessName
-    ) {
-      return NextResponse.json(
-        { error: "Missing required fields" },
-        { status: 400 }
-      );
-    }
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    });
 
-    // Send email
-    await sendEmail(formData);
+    await transporter.sendMail({
+      from: email,
+      to: process.env.EMAIL_USER,
+      subject: `Contact Form Message from ${name}`,
+      text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${message}`,
+    });
 
-    return NextResponse.json(
-      { message: "Email sent successfully" },
-      { status: 200 }
-    );
+    return NextResponse.json({ message: "Email sent successfully" });
   } catch (error) {
-    console.error("Error sending email:", error);
+    console.error("Email sending error:", error);
     return NextResponse.json(
-      { error: "Failed to send email" },
+      { error: "Internal Server Error" },
       { status: 500 }
     );
   }
