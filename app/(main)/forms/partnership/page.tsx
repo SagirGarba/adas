@@ -276,27 +276,11 @@ const PartnershipForm = () => {
 
               <div>
                 <label className="block text-gray-700 mb-2 font-medium">
-                  Private or Public Sector *
+                  Sector *
                 </label>
                 <select
                   name="sectorType"
                   value={formData.sectorType}
-                  onChange={handleChange}
-                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2`}
-                >
-                  <option value="">Select sector type</option>
-                  <option value="Private">Private</option>
-                  <option value="Public">Public</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-gray-700 mb-2 font-medium">
-                  Potential Area of Collaboration *
-                </label>
-                <select
-                  name="collaborationArea"
-                  value={formData.collaborationArea}
                   onChange={handleChange}
                   className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2`}
                 >
@@ -342,6 +326,19 @@ const PartnershipForm = () => {
                   <option value="Over ₦100,000,000">Over ₦100,000,000</option>
                 </select>
               </div>
+            </div>
+            <div>
+              <label className="block text-gray-700 mb-2 font-medium">
+                Nature of Collaboration *
+              </label>
+              <textarea
+                name="collaborationArea"
+                value={formData.collaborationArea}
+                onChange={handleChange}
+                className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2`}
+                rows={4}
+                placeholder="Provide details about your company"
+              ></textarea>
             </div>
 
             <div>
