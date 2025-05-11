@@ -39,7 +39,7 @@ export async function POST(req: Request) {
     };
 
     const missingFields = Object.entries(requiredFields)
-      .filter(([_, value]) => !value)
+      .filter(([value]) => !value)
       .map(([key]) => key);
 
     if (missingFields.length > 0) {
