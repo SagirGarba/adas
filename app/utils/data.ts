@@ -5,6 +5,7 @@ import { StaticImageData } from "next/image";
 import Images3 from "@/public/images/home/Testimonial/index";
 import Images4 from "@/public/images/blog/index";
 import SSG from "@/public/images/home/auwal.jpeg";
+import opportunity from "@/public/images/home/opportunity/index";
 
 export const navigation = [
   { name: "Home", href: "/" },
@@ -447,6 +448,7 @@ export const models = [
     description: `The ADAS Programme employs an Aggregation Model to streamline the supply of produce from smallholder farmers to meet the standards of modern markets. This model organizes farmers into cohesive groups, enabling them to engage in formal contractual arrangements. By consolidating their output, farmers gain increased bargaining power and improved access to markets.
 
 Supporting this model are strategically located warehouses that function as field storage centers, securing produce and facilitating access to financing and lending opportunities. The state plays a crucial role by providing essential infrastructure, including designated markets and warehouses, which underpins the functionality and success of these aggregation efforts.`,
+    image: opportunity[4],
   },
   {
     title: "Production Model",
@@ -455,6 +457,7 @@ Supporting this model are strategically located warehouses that function as fiel
 Contract farming agreements form the basis of this model, ensuring a structured relationship and mutual benefits for all involved parties. Furthermore, to enhance farmer organization and market access, farmers are grouped into producer clusters. This clustering strengthens their collective voice in the market and improves their overall market integration.
 
 The program's sustainability is also addressed through the development of structured and formalized produce and livestock markets, which generate revenue to support ongoing operations and future investments within the agricultural sector.`,
+    image: opportunity[2],
   },
   {
     title: "ADAS Credit Guarantee Scheme",
@@ -465,5 +468,74 @@ This scheme facilitates warehouse financing for commodities like grains and live
 The scheme operates with a dual financing track, offering both interest-based financing through conventional banks and non-interest/Shariah-compliant financing based on Islamic finance principles like Murabaha and Salam. This dual approach caters to a wider range of participants, including faith-based enterprises.
 
 Collateral coverage ranges from 130% to 150%, with commodities backing 100% and the Guarantee Scheme providing an additional 30% to 50%. Managed by ADAS Programme Limited and implemented through a network of agents, the ADAS-CGS aims to improve collateral-free credit access, reduce lending risks, stimulate value chain offtake, facilitate private investment, and integrate smallholder farmers into broader markets, covering a range of crops, livestock, and aquaculture.`,
+    image: opportunity[0], // Replace with actual image path or URL
+  },
+];
+
+export const opportunities = [
+  {
+    id: 1,
+    title: "Adamawa State Basic Geography",
+    description:
+      "Adamawa State situated in North east Nigeria, spans approximately 434.50 km from the northern tip ...",
+    image: opportunity[0],
+    link: "/opportunity/oppor1",
+  },
+  {
+    id: 2,
+    title: "ADAMAWA STATE CLIMATE",
+    description:
+      "Adamawa State experiences a tropical savannah climate, characterized by distinct wet and dry seasons, ...",
+    image: opportunity[1],
+    link: "/opportunity/oppor2",
+  },
+  {
+    id: 3,
+    title: "ADAMAWA STATE HYDROLOGY AND WATER RESOURES",
+    description:
+      "Adamawa State is characterized by three main drainage systems: the Benue, Yadzeram, and Taraba. The Benue River, ...",
+    image: opportunity[2],
+    link: "/opportunity/oppor3",
+  },
+  {
+    id: 4,
+    title: "Adamawa Soils and Soil Management",
+    description:
+      "The soils of Adamawa State, like much of Northern Nigeria, are predominantly derived from the Basement Complex, ...",
+    image: opportunity[3],
+    link: "/opportunity/oppor4",
+  },
+  {
+    id: 5,
+    title: "LIVESTOCK IN ADAMAWA STATE: A STRATEGIC INVESTMENT FRONTIER",
+    description:
+      "Adamawa State is one of Nigeria’s top livestock hubs, offering a unique combination of vast grazing land, ... ",
+    image: opportunity[4],
+    link: "/opportunity/oppor5",
+  },
+  {
+    id: 6,
+    title: "VEGETATION AND FOREST RESOURCES IN ADAMAWA STATE",
+    description:
+      "Adamawa State is endowed with diverse vegetation zones—Southern Guinea Savannah, Northern Guinea Savannah, ... ",
+    image: opportunity[5],
+    link: "/opportunity/oppor6",
+  },
+  {
+    id: 7,
+    title: "IRRIGATED AGRICULTURE IN ADAMAWA STATE",
+    description:
+      "Adamawa State offers one of Nigeria’s most promising environments for irrigated agriculture. Bordered by rivers Benue, Gongola, Yedzaram, and others, the state’s geography and climate—characterized ",
+    image: opportunity[6],
+    link: "/opportunity/oppor7",
+  },
+  {
+    id: 8,
+    title:
+      "Food and Cash Crops in Adamawa State: Unlocking Agribusiness Potential",
+    description:
+      "Adamawa State boasts diverse agro-climatic and edaphic (soil-related) conditions, making it one of the most agriculturally endowed regions in Nigeria. Its varied topography, soil types, and rainfall patterns support ",
+    image: opportunity[7],
+    link: "/opportunity/oppor8",
   },
 ];
