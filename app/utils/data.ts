@@ -442,6 +442,33 @@ export const data = [
   { id: 7, grain: "5.	Gombi Grains Market", livestock: "" },
 ];
 
+export const model = [
+  {
+    id: 1,
+    title: "Aggregation Model",
+    description:
+      "The ADAS Programme employs an Aggregation Model to streamline the supply of produce from smallholder farmers to meet the standards of modern markets. ...",
+    image: Images4[0],
+    link: "/businessModel/model1",
+  },
+  {
+    id: 2,
+    title: "Production Model",
+    description:
+      "The ADAS Credit Guarantee Scheme (ADAS-CGS) is a key initiative designed to improve access to credit for agricultural stakeholders in Adamawa State, ...",
+    image: Images4[9],
+    link: "/businessModel/model2",
+  },
+  {
+    id: 3,
+    title: "ADAS Credit Guarantee Scheme. ",
+    description:
+      "The ADAS Credit Guarantee Scheme (ADAS-CGS) is a key initiative designed to improve access to credit for agricultural stakeholders in Adamawa State,...",
+    image: Images4[10],
+    link: "/businessModel/model3",
+  },
+];
+
 export const models = [
   {
     title: "Aggregation Model",
@@ -461,7 +488,7 @@ The program's sustainability is also addressed through the development of struct
   },
   {
     title: "ADAS Credit Guarantee Scheme",
-    description: `The ADAS Credit Guarantee Scheme (ADAS-CGS) is a key initiative designed to improve access to credit for agricultural stakeholders in Adamawa State, particularly those lacking traditional collateral.
+    description: `ADAS Credit Guarantee Scheme. The ADAS Credit Guarantee Scheme (ADAS-CGS) is a key initiative designed to improve access to credit for agricultural stakeholders in Adamawa State, particularly those lacking traditional collateral.
 
 This scheme facilitates warehouse financing for commodities like grains and livestock by providing guarantees to financial institutions, thereby securing loans for eligible agribusinesses. Participating banks disburse loans specifically for procuring and delivering commodities to designated warehouses managed by appointed Collateral Managers.
 
