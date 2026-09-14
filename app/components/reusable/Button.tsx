@@ -15,6 +15,18 @@ export default function Button({
 }: ButtonProps) {
   const router = useRouter(); // Next.js navigation hook
 
+  const resolvedBgClass =
+    bgColor === "white"
+      ? "bg-white"
+      : bgColor === "[#0B6623]" || bgColor === "green"
+        ? "bg-[#0B6623]"
+        : "bg-[#0B6623]";
+
+  const resolvedTextClass =
+    textColor === "[#0B6623]" || textColor === "green"
+      ? "text-[#0B6623]"
+      : "text-white";
+
   return (
     <button
       style={style}
@@ -25,7 +37,7 @@ export default function Button({
           router.push(linkTo); // Correct Next.js navigation
         }
       }}
-      className={`bg-${bgColor} text-${textColor} w-fit h-fit rounded-lg px-6 py-[10px] ${className}`}
+      className={`inline-flex h-fit w-fit items-center justify-center rounded-lg px-6 py-[10px] font-semibold shadow-md transition-all duration-300 hover:-translate-y-1 ${resolvedBgClass} ${resolvedTextClass} ${className ?? ""}`}
     >
       {text ? text : "Contact Us"}
       {icons}

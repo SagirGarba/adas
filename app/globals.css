@@ -3,9 +3,19 @@
 
 @import "tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f7fff8;
+  color: #111827;
+}
+
+::selection {
+  background-color: #0b6623;
+  color: white;
+}
 
 .wrapper {
   padding-inline: 10px;

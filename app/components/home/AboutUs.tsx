@@ -1,21 +1,21 @@
 import React from "react";
+import Link from "next/link";
 import Image from "next/image";
 import Images from "@/public/images/home/Gallery/index";
 
 const AboutUs = () => {
-  
   return (
-    <section className="wraper flex flex-col overflow-hidden bg-no-repeat bg-left-bottom">
+    <section className="wrapper py-16 flex flex-col overflow-hidden bg-no-repeat bg-left-bottom">
       <div className="container mx-auto px-4">
-        <div className="pt-20 pb-5 flex flex-col md:flex-row md:items-center md:justify-between">
-          {/* Left Image */}
+        <div className="flex flex-col pt-8 pb-5 md:flex-row md:items-center md:justify-between">
+          {/* Left Image 9 */}
           <div className="flex flex-col w-full md:w-1/2 md:items-end">
             <Image
               src={Images[4]}
               width={888}
               height={792}
               alt="Who We Are"
-              className="object-center object-cover rounded-2xl"
+              className="rounded-2xl object-cover object-center shadow-sm"
             />
           </div>
 
@@ -33,9 +33,12 @@ const AboutUs = () => {
             </div>
 
             <div className="mt-2 md:py-4">
-              <button className="bg-[#0B6623] text-white px-3 py-3 rounded-lg shadow-md transition-all w-fit flex items-center gap-2">
-                Learn More &#11166; &#11166;
-              </button>
+              <Link
+                href="/aboutus"
+                className="flex w-fit items-center gap-2 rounded-lg bg-[#0B6623] px-4 py-3 text-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:bg-[#09511d]"
+              >
+                Learn More <span aria-hidden="true">→</span>
+              </Link>
             </div>
 
             <div className="mx-auto mt-8">
@@ -44,7 +47,7 @@ const AboutUs = () => {
                 width={700}
                 height={692}
                 alt="Supporting Image"
-                className="object-center object-cover rounded-2xl"
+                className="rounded-2xl object-cover object-center shadow-sm"
               />
             </div>
           </div>

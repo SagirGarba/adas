@@ -1,4 +1,5 @@
 import Hero from "@/app/components/about/Hero";
+import HistoricalBackground from "@/app/components/about/HistoricalBackground";
 import Mission from "@/app/components/about/Mission";
 import Gallery from "@/app/components/home/Gallery";
 
@@ -9,7 +10,10 @@ const page = () => {
     <div>
       <Hero />
       <Mission />
-      <Gallery />
+      <HistoricalBackground />
+      <div id="our-impact">
+        <Gallery />
+      </div>
     </div>
   );
 };
